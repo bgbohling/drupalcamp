@@ -1,0 +1,5 @@
+name: 'drupalcamp_2018'
+type: module
+description: 'Example code for Drupalcamp ATL 2018'
+core: 8.x
+package: 'Custom'

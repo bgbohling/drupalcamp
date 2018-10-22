@@ -1,0 +1,4 @@
+services:
+  plugin.manager.musician:
+    class: Drupal\drupalcamp_2018\Plugin\MusicianManager
+    parent: default_plugin_manager

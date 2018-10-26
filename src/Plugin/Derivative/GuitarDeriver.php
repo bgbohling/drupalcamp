@@ -14,7 +14,9 @@ class GuitarDeriver extends DeriverBase implements ContainerDeriverInterface {
   }
 
   public static function create(ContainerInterface $container, $base_plugin_id) {
-    return new static('entity_type.manager');
+    return new static(
+      $container->get('entity_type.manager')
+    );
   }
 
   public function getDerivativeDefinitions($base_plugin_definition) {
@@ -34,5 +36,5 @@ class GuitarDeriver extends DeriverBase implements ContainerDeriverInterface {
     }
     return $this->derivatives;
   }
-  
+
 }

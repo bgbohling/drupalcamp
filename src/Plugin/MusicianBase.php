@@ -17,4 +17,8 @@ abstract class MusicianBase extends PluginBase implements MusicianInterface {
     return $this->pluginDefinition['label'];
   }
 
+  public function play() {
+    
+  }
+
 }

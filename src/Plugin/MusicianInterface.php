@@ -16,4 +16,8 @@ interface MusicianInterface extends PluginInspectionInterface {
    */
   public function getInstrument();
 
+  public function getName();
+
+  public function play();
+
 }

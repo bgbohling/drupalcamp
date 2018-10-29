@@ -6,6 +6,7 @@
  */
 
 use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\node\NodeInterface;
 
 /**
  * Implements hook_help().
@@ -32,4 +33,27 @@ function drupalcamp_2018_theme() {
       'render element' => 'children',
     ],
   ];
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_insert().
+ */
+function drupalcamp_2018_node_insert(NodeInterface $node) {
+  if ($node->bundle() === 'musician') {
+    \Drupal::service('plugin.manager.musician')->clearCachedDefinitions();
+  }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_update().
+ */
+function drupalcamp_2018_node_update(NodeInterface $node) {
+  drupalcamp_2018_node_insert($node);
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_delete().
+ */
+function drupalcamp_2018_node_delete(NodeInterface $node) {
+  drupalcamp_2018_node_insert($node);
 }

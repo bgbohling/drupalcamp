@@ -13,7 +13,7 @@ use Drupal\drupalcamp_2018\Plugin\MusicianBase;
  *   id = "guitarist",
  *   name = "Guitar",
  *   instrument = "guitar",
- *   deriver = "Drupal\drupalcamp_2018\Plugin\Derivative\GuitarDeriver"
+ *   deriver = "Drupal\drupalcamp_2018\Plugin\Derivative\GuitarDeriver",
  * )
  */
 class Guitar extends MusicianBase {

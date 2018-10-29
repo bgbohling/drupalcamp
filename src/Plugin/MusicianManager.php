@@ -2,16 +2,14 @@
 
 namespace Drupal\drupalcamp_2018\Plugin;
 
-use Drupal\Core\Plugin\DefaultPluginManager;
 use Drupal\Core\Cache\CacheBackendInterface;
 use Drupal\Core\Extension\ModuleHandlerInterface;
-
+use Drupal\Core\Plugin\DefaultPluginManager;
 
 /**
  * Provides the Musician plugin manager.
  */
 class MusicianManager extends DefaultPluginManager {
-
 
   /**
    * Constructs a new MusicianManager object.

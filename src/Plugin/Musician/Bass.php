@@ -12,7 +12,7 @@ use Drupal\drupalcamp_2018\Plugin\MusicianBase;
  * @Musician (
  *   id = "bassist",
  *   name = "Bass",
- *   instrument = "bass guitar"
+ *   instrument = "bass guitar",
  * )
  */
 class Bass extends MusicianBase {

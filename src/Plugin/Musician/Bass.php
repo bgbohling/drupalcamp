@@ -13,6 +13,7 @@ use Drupal\drupalcamp_2018\Plugin\MusicianBase;
  *   id = "bassist",
  *   name = "Bass",
  *   instrument = "bass guitar",
+ *   style = "jazz",
  * )
  */
 class Bass extends MusicianBase {

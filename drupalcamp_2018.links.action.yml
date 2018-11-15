@@ -1,0 +1,6 @@
+entity.musician.add_form:
+  route_name: entity.musician.add_form
+  title: 'Add Musician'
+  appears_on:
+    - entity.musician.collection
+

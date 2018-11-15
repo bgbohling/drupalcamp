@@ -7,6 +7,15 @@ use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Plugin\Discovery\ContainerDeriverInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
+/**
+ * A deriver allows us to create instances (derivatives) of a plugin based on
+ * dynamic data.
+ * In this case, we're going to loop through the musician config entities and
+ * create derivatives for all the guitar players.
+ * Derivatives can be used to add attributes to a plugin, as well as to override
+ * attributes in the plugin annotation.
+ *
+ */
 class GuitarDeriver extends DeriverBase implements ContainerDeriverInterface {
 
   /**
@@ -40,22 +49,17 @@ class GuitarDeriver extends DeriverBase implements ContainerDeriverInterface {
    */
   public function getDerivativeDefinitions($base_plugin_definition) {
     $this->derivatives = [];
+    $musicians = $this->entityTypeManager->getStorage('musician')->loadMultiple();
 
-    $node_storage = $this->entityTypeManager->getStorage('node');
-    $node_ids = $node_storage->getQuery()
-      ->condition('type', 'musician')
-      ->condition('field_instrument', 'guitar')
-      ->execute();
-
-    if (!empty($node_ids)) {
-      $nodes = $node_storage->loadMultiple($node_ids);
-      foreach ($nodes as $node) {
-        $this->derivatives[$node->id()] = $base_plugin_definition;
-        $this->derivatives[$node->id()][‘name’] = $node->field_name->getValue();
-        $this->derivatives[$node->id()][‘instrument’] = $node->field_axe->getValue();
+    foreach ($musicians as $musician) {
+      if (!empty($musician->getInstrument()) && $musician->getInstrument() == 'guitar') {
+        $this->derivatives[$musician->id()] = $base_plugin_definition;
+        $this->derivatives[$musician->id()]['instrument'] = $musician->getInstrument();
+        $this->derivatives[$musician->id()]['name'] = $musician->getName();
+        $this->derivatives[$musician->id()]['axe'] = $musician->getAxe();
+        $this->derivatives[$musician->id()]['style'] = $musician->getStyle();
       }
     }
-
     return $this->derivatives;
   }
 

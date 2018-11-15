@@ -14,11 +14,11 @@ abstract class MusicianBase extends PluginBase implements MusicianInterface {
   }
 
   public function getName() {
-    return $this->pluginDefinition['label'];
+    return $this->pluginDefinition['name'];
   }
 
   public function play() {
-    
+
   }
 
 }

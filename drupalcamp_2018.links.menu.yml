@@ -1,0 +1,9 @@
+
+# Musician menu items definition
+entity.musician.collection:
+  title: 'Musician'
+  route_name: entity.musician.collection
+  description: 'List Musician (bundles)'
+  parent: system.admin_structure
+  weight: 99
+

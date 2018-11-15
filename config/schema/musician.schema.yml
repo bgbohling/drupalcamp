@@ -1,0 +1,20 @@
+drupalcamp_2018.musician.*:
+  type: config_entity
+  label: 'Musician config'
+  mapping:
+    id:
+      type: string
+      label: 'ID'
+    label:
+      type: label
+      label: 'Label'
+    uuid:
+      type: string
+    name:
+      type: string
+    instrument:
+      type: string
+    style:
+      type: string
+    axe:
+      type: string

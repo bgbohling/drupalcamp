@@ -18,6 +18,6 @@ interface MusicianInterface extends PluginInspectionInterface {
 
   public function getName();
 
-  public function play();
+  public function play($song);
 
 }

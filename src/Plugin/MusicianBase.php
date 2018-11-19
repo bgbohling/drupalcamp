@@ -17,8 +17,8 @@ abstract class MusicianBase extends PluginBase implements MusicianInterface {
     return $this->pluginDefinition['name'];
   }
 
-  public function play() {
-
+  public function play($song) {
+    echo('Playing ' . $song);
   }
 
 }

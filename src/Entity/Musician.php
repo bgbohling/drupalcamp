@@ -9,6 +9,10 @@ use Drupal\Core\Config\Entity\ConfigEntityBase;
  *
  * Entity attributes correspond to Musician plugin keys.
  *
+ * A really cool thing happens when you associate a config entity with a plugin.
+ * When you derive a plugin from said config entity, the plugin picks up the
+ * attributes of the config entity.
+ *
  * @ConfigEntityType(
  *   id = "musician",
  *   label = @Translation("Musician"),
@@ -54,6 +58,8 @@ class Musician extends ConfigEntityBase implements MusicianInterface {
    *
    * @var string
    */
+  protected $label;
+
   protected $name;
 
   protected $instrument;

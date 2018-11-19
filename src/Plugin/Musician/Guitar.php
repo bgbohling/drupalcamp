@@ -7,7 +7,7 @@ use Drupal\drupalcamp_2018\Plugin\MusicianBase;
 /**
  * Provides a guitarist
  *
- * The attributes listed here can all be provided by derivatives. :)
+ * The attributes listed here can all be overridden by derivatives. :)
  *
  * @Musician (
  *   id = "guitarist",
